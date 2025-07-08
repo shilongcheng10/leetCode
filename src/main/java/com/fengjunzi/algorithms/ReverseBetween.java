@@ -1,4 +1,5 @@
-package com.fengjunzi.algorithms;//给你单链表的头指针 head 和两个整数 left 和 right ，其中 left <= right 。请你反转从位置 left 到位置 right 的链
+package com.fengjunzi.algorithms;
+//给你单链表的头指针 head 和两个整数 left 和 right ，其中 left <= right 。请你反转从位置 left 到位置 right 的链
 //表节点，返回 反转后的链表 。
 //
 // 
@@ -88,6 +89,16 @@ class ReverseBetween {
         return dummyHead.next;
     }
 
+    private ListNode reverseList(ListNode head){
+        if(head == null || head.next == null){
+            return head;
+        }
+        ListNode newHead = reverseList(head.next);
+        head.next.next = head;
+        head.next = null;
+        return newHead;
+    }
+
     /**
      * use head insert method.
      * @param head
@@ -113,15 +124,6 @@ class ReverseBetween {
         return dummyHead.next;
     }
 
-    private ListNode reverseList(ListNode head){
-        if(head == null || head.next == null){
-            return head;
-        }
-        ListNode newHead = reverseList(head.next);
-        head.next.next = head;
-        head.next = null;
-        return newHead;
-    }
     class ListNode {
         int val;
         ListNode next;
