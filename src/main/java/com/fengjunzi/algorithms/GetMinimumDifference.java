@@ -78,8 +78,6 @@ class GetMinimumDifference {
         midumSort(root.right);
 
     }
-}
-
     public class TreeNode {
         int val;
         TreeNode left;
