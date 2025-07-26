@@ -95,7 +95,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-class Solution {
+class CloneGraph {
     private Map<Integer, Node> map = new HashMap<Integer, Node>();
     public Node cloneGraph(Node node) {
         if(node == null){
