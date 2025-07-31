@@ -69,7 +69,7 @@ class ZigzagLevelOrder {
         nodeDeque.offer(root);
         while(!nodeDeque.isEmpty()){
             int n = nodeDeque.size();
-            List<Integer> levelRes = new ArrayList();
+            List<Integer> levelRes = new ArrayList<>();
             for(int i = 0; i < n;i++){
                 TreeNode node = nodeDeque.poll();
                 levelRes.add(node.val);
