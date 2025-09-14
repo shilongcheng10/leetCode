@@ -49,7 +49,7 @@ package com.fengjunzi.algorithms;//给你一个整数数组 nums ，其中元素
  * }
  * }
  */
-class Solution {
+class SortedArrayToBST {
     class TreeNode {
         int val;
         TreeNode left;
