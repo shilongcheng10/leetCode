@@ -1,4 +1,5 @@
-package com.fengjunzi.algorithms;//给定两个整数数组 inorder 和 postorder ，其中 inorder 是二叉树的中序遍历， postorder 是同一棵树的后序遍历，请你构造并
+package com.fengjunzi.algorithms;
+//给定两个整数数组 inorder 和 postorder ，其中 inorder 是二叉树的中序遍历， postorder 是同一棵树的后序遍历，请你构造并
 //返回这颗 二叉树 。 
 //
 // 
@@ -108,7 +109,7 @@ class BuildTree2 {
         return root;
     }
 
-     static   class TreeNode {
+    static class TreeNode {
         int val;
         TreeNode left;
         TreeNode right;
