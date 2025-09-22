@@ -7,7 +7,7 @@ import java.util.Scanner;
         •	操作 1 number1 number2：把 number2 加到 L[number1] 上（单点增量）。
         •	操作 2 number1 number2：返回 L[number1..number2] 的区间和（或题意是前缀和到 number2，描述中有两种写法，这里按区间和通用处理）。
 要在数组很大、操作很多的情况下把运行时间控制在 1s 内（即高性能）。*/
-public class LSB {
+public class FenWick {
     static class FenWickTree{
         int n;
         long[] tree;
