@@ -37,6 +37,9 @@ package com.fengjunzi.algorithms;
 
 
 //leetcode submit region begin(Prohibit modification and deletion)
+
+import java.util.List;
+
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -110,13 +113,12 @@ class ReverseBetween {
         ListNode dummyHead = new ListNode();
         dummyHead.next = head;
         ListNode pre = dummyHead;
-        for(int i = 0; i < left-1;i++){
+        for(int i = 0; i < left - 1; i++){
             pre = pre.next;
         }
         ListNode cur = pre.next;
-        ListNode next;
-        for(int i = 0; i < right-left;i++){
-            next = cur.next;
+        for(int i =0;i<  right-1-left+1;i++){
+            ListNode next = cur.next;
             cur.next = next.next;
             next.next = pre.next;
             pre.next = next;
