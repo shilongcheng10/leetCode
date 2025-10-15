@@ -52,4 +52,35 @@ public class knapsackDP {
         }
         return res;
     }
+
+    //完全背包问题
+    int unboundedKnapsackDP(int[] wgt, int[] val, int cap) {
+        int[][] dp = new int[wgt.length + 1][cap + 1];
+        for (int i = 1; i <= wgt.length; i++) {
+            for(int j = 1; j<=cap;j++){
+                dp[i][j] = dp[i-1][j];
+                if (j >= wgt[i-1]) {
+                    dp[i][j] = Math.max(dp[i][j], dp[i][j-wgt[i-1]] + val[i-1]);
+                }
+            }
+        }
+        return dp[wgt.length][cap];
+    }
+
+    //完全背包问题 1维数组
+    public int unboundedKnapsackDPComp(int[] wgt, int[] val, int cap) {
+        int[] dp = new int[cap + 1];
+        for (int i = 1; i <= wgt.length; i++) {
+            for(int j =1;j<=cap;j++){
+                if (wgt[i - 1] > j) {
+                    // 若超过背包容量，则不选物品 i
+                    dp[j] = dp[j];
+                } else {
+                    // 不选和选物品 i 这两种方案的较大值
+                    dp[j] = Math.max(dp[j], dp[j - wgt[i - 1]] + val[i - 1]);
+                }
+            }
+        }
+        return dp[cap];
+    }
 }
