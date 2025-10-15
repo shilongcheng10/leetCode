@@ -38,10 +38,7 @@ package com.fengjunzi.algorithms;
 
 //leetcode submit region begin(Prohibit modification and deletion)
 
-import java.util.ArrayList;
-import java.util.Deque;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 /**
  * Definition for a binary tree node.
@@ -83,6 +80,60 @@ class ZigzagLevelOrder {
 
             res.add(j % 2 == 0 ? levelRes : levelRes.reversed());
             j++;
+        }
+        return res;
+    }
+
+    //解法： 层序 + Collections.reverse();
+    public List<List<Integer>> zigzagLevelOrder2(TreeNode root){
+        List<List<Integer>> res = new ArrayList<>();
+        if(root == null) return res;
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        int direction = 1;
+        while(!queue.isEmpty()){
+            int size = queue.size();
+            List<Integer> list = new ArrayList<>();
+            for(int i = 0; i < size; i++){
+                TreeNode node = queue.poll();
+                list.add(node.val);
+                if(node.left != null) queue.add(node.left);
+                if(node.right != null) queue.add(node.right);
+            }
+            if(direction == -1) Collections.reverse(list);
+            res.add(list);
+            direction *= -1;
+        }
+        return res;
+    }
+    // 解法： 层序 + 双端队列
+    public List<List<Integer>> zigzagLevelOrder3(TreeNode root) {
+        List<List<Integer>> res = new ArrayList<>();
+        if (root == null) {
+            return res;
+        }
+        int direction = 1;
+        ArrayDeque<TreeNode> queue = new ArrayDeque<>();
+        queue.offer(root);
+        while(!queue.isEmpty()){
+            Deque<Integer> curLevel = new LinkedList<>();
+            int size = queue.size();
+            for(int i =0; i < size;i++){
+                TreeNode curNode = queue.poll();
+                if(direction == 1){
+                    curLevel.offerLast(curNode.val);
+                }else{
+                    curLevel.offerFirst(curNode.val);
+                }
+                if(curNode.left != null){
+                    queue.offer(curNode.left);
+                }
+                if(curNode.right != null){
+                    queue.offer(curNode.right);
+                }
+            }
+            res.add(new LinkedList<Integer>(curLevel));
+            direction *= -1;
         }
         return res;
     }
