@@ -28,7 +28,7 @@ package com.fengjunzi.algorithms;//给定一个整数 n，计算所有小于等�
 
 
 //leetcode submit region begin(Prohibit modification and deletion)
-class Solution {
+class CountDigitOne {
     public int countDigitOne(int n) {
         int high = n /10, cur = n %10, low = 0, digit = 1, res =0;
         while(high!=0 || cur!=0) {
