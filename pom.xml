@@ -15,6 +15,12 @@
         <maven.compiler.target>24</maven.compiler.target>
     </properties>
     <dependencies>
+        <!-- Maven 示例 -->
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-base</artifactId>
+            <version>24</version>
+        </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
