@@ -27,7 +27,7 @@ package com.fengjunzi.algorithms;//给你两个二进制字符串 a 和 b ，以
 // Related Topics 位运算 数学 字符串 模拟 👍 1324 👎 0
 
 
-import java.util.Stack;
+import java.util.*;
 
 //leetcode submit region begin(Prohibit modification and deletion)
 class AddBinary {

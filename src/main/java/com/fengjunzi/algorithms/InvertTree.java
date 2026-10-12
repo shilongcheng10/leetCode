@@ -75,6 +75,19 @@ class InvertTree {
         return root;
     }
 
+    public TreeNode flipTree(TreeNode root) {
+        if(root==null){
+            return root;
+        }
+        flipTree(root.left);
+        flipTree(root.right);
+        TreeNode left = root.left;
+        TreeNode right = root.right;
+        root.right = left;
+        root.left = right;
+        return root;
+    }
+
     class TreeNode {
         int val;
         TreeNode left;
